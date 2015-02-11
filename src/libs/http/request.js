@@ -4,9 +4,10 @@ var http = require('http'),
     url = require('url');
 
 class Request {
+    
     constructor(requestObj){
         if(!requestObj instanceof http.ClientRequest){
-            throw new Error('requestObj is not an instance of http.Request');
+            throw new Error('requestObj is not an instance of http.ClientRequest');
         }
 
         this._requestObj = requestObj;

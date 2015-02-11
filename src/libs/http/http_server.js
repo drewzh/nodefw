@@ -1,8 +1,8 @@
 'use strict';
 
 var http = require('http'),
-    Request = require('./request.js'),
-    Response = require('./response.js');
+    Request = require('./request'),
+    Response = require('./response');
 
 class HttpServer {
 
