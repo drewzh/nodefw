@@ -15,7 +15,8 @@
   },
   "scripts": {
     "start": "node ./dist/test_app/index.js",
-    "test": "mocha ./tests"
+    "test": "mocha ./tests",
+    "postinstall": "gulp"
   },
   "author": "drewzh <me@drewzh.com>",
   "license": "BSD"
