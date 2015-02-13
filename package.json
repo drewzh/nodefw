@@ -14,9 +14,8 @@
     "gulp-notify": "~2.2.0"
   },
   "scripts": {
-    "start": "node ./dist/test_app/index.js",
-    "test": "mocha ./tests",
-    "postinstall": "gulp"
+    "start": "node ./src/test_app/index.js",
+    "test": "mocha ./tests"
   },
   "author": "drewzh <me@drewzh.com>",
   "license": "BSD"
