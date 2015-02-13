@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Node HTTP API framework",
   "main": "src/test_app/index.js",
+  "engines": {
+    "iojs": "1.0.x"
+  },
   "dependencies": {},
   "devDependencies": {
     "gulp": "~3.8.11",
@@ -11,6 +14,7 @@
     "gulp-notify": "~2.2.0"
   },
   "scripts": {
+    "start": "node ./dist/test_app/index.js",
     "test": "mocha ./tests"
   },
   "author": "drewzh <me@drewzh.com>",
