@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "iojs --es_staging ./src/test_app/index.js",
-    "test": "mocha ./tests/**/tests/**/*.js"
+    "test": "mocha ./dist/**/tests/**/*.js"
   },
   "author": "drewzh <me@drewzh.com>",
   "license": "BSD"
