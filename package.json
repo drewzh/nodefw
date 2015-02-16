@@ -11,7 +11,7 @@
     "gulp-notify": "~2.2.0"
   },
   "scripts": {
-    "test": "mocha ./tests"
+    "test": "mocha ./tests/**/tests/**/*.js"
   },
   "author": "drewzh <me@drewzh.com>",
   "license": "BSD"

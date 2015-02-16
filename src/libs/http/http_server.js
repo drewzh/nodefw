@@ -10,6 +10,9 @@ class HttpServer {
         this.requestHandlers = [];
     }
 
+    /**
+     * Start listening on specified port/ip
+     */
     listen(port, address){
         this.port = port || '8080';
         this.address = address || '0.0.0.0';
@@ -19,9 +22,13 @@ class HttpServer {
 
     /**
      * Add new request handler
+     *
+     * @return {Object} this
      */
     addHandler(handler){
         this.requestHandlers.push(handler);
+
+        return this;
     }
 
     /**
