@@ -6,6 +6,8 @@ before_script:
     - npm install -g gulp && gulp
 script:
     - npm test
+after_success:
+    - coveralls
 branches:
   only:
     - master
