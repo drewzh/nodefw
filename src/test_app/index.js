@@ -29,5 +29,4 @@ test_app.get(/.*/, function(req, res){
     res.send(404, 'Page not found');
 });
 
-
-test_app.start();
+test_app.start(process.env.PORT || 8080);
