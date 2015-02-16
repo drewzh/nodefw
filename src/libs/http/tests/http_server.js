@@ -10,12 +10,6 @@ describe('HTTP', function() {
             assert.equal(typeof httpServer, 'object');
             assert.equal(typeof httpServer.listen, 'function');
         });
-
-
-    });
-
-    describe('Module ResponseObject', function(){
-
     });
 
 });
