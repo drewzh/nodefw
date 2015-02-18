@@ -2,8 +2,9 @@ language: node_js
 node_js:
     - "0.10"
 install:
+    - npm install
 before_script:
-    - npm install -g gulp && gulp
+    - gulp
 script:
     - npm test
 after_success:
