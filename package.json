@@ -1,40 +1,40 @@
 {
-    "name": "nodefw",
-    "version": "0.0.1",
-    "description": "Node HTTP API framework",
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/drewzh/nodefw.git"
-    },
-    "main": "src/test_app/index.js",
-    "engines": {
-        "node": "0.11.x",
-        "npm": "2.x"
-    },
-    "dependencies": {
-        "gulp": "~3.8.11",
-        "gulp-6to5": "~3.0.0",
-        "gulp-notify": "~2.2.0"
-    },
-    "devDependencies": {
-        "mocha": "~2.1.0",
-        "coveralls": "~2.11.2",
-        "mocha-lcov-reporter": "0.0.1",
-        "blanket": "~1.1.6"
-    },
-    "scripts": {
-        "start": "env node ./dist/test_app/index.js",
-        "postinstall": "gulp",
-        "test": "mocha --recursive -R spec",
-        "coveralls": "mocha -r blanket --recursive -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
-    },
-    "config": {
-        "blanket": {
-            "pattern": [
-                "dist"
-            ]
-        }
-    },
-    "author": "drewzh <me@drewzh.com>",
-    "license": "BSD"
+  "name": "nodefw",
+  "version": "0.0.1",
+  "description": "Node HTTP API framework",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/drewzh/nodefw.git"
+  },
+  "main": "src/test_app/index.js",
+  "engines": {
+    "node": "0.11.x",
+    "npm": "2.x"
+  },
+  "dependencies": {
+    "gulp": "~3.8.11",
+    "gulp-notify": "~2.2.0",
+    "gulp-babel": "~4.0.0"
+  },
+  "devDependencies": {
+    "mocha": "~2.1.0",
+    "coveralls": "~2.11.2",
+    "mocha-lcov-reporter": "0.0.1",
+    "blanket": "~1.1.6"
+  },
+  "scripts": {
+    "start": "env node ./dist/test_app/index.js",
+    "postinstall": "gulp",
+    "test": "mocha --recursive -R spec",
+    "coveralls": "mocha -r blanket --recursive -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "dist"
+      ]
+    }
+  },
+  "author": "drewzh <me@drewzh.com>",
+  "license": "BSD"
 }

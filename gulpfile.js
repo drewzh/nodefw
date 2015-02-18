@@ -1,12 +1,12 @@
 'use strict';
 
 var gulp = require('gulp'),
-    to5 = require('gulp-6to5'),
+    babel = require('gulp-babel'),
     notify = require('gulp-notify');
 
 gulp.task('default', function () {
     return gulp.src(['src/**/*.js'])
-        .pipe(to5())
+        .pipe(babel())
         .pipe(gulp.dest('dist'))
         .pipe(notify({message: 'NodeFW build process complete!', onLast: true}));
 });
