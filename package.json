@@ -1,36 +1,38 @@
 {
-  "name": "nodefw",
-  "version": "0.0.1",
-  "description": "Node HTTP API framework",
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/drewzh/nodefw.git"
-  },
-  "main": "src/test_app/index.js",
-  "engines": {
-    "node": "0.10.x"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "gulp": "~3.8.11",
-    "gulp-6to5": "~3.0.0",
-    "mocha": "~2.1.0",
-    "gulp-notify": "~2.2.0",
-    "coveralls": "~2.11.2",
-    "mocha-lcov-reporter": "0.0.1",
-    "blanket": "~1.1.6"
-  },
-  "config": {
-    "blanket": {
-      "pattern": "dist"
-    }
-  },
-  "scripts": {
-    "start": "env node ./dist/test_app/index.js",
-    "postinstall": "./node_modules/.bin/gulp",
-    "test": "./node_modules/.bin/mocha --recursive -R spec",
-    "coveralls": "./node_modules/.bin/_mocha --require blanket --recursive -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
-  },
-  "author": "drewzh <me@drewzh.com>",
-  "license": "BSD"
+    "name": "nodefw",
+    "version": "0.0.1",
+    "description": "Node HTTP API framework",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/drewzh/nodefw.git"
+    },
+    "main": "src/test_app/index.js",
+    "engines": {
+        "node": "0.10.x"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "gulp": "~3.8.11",
+        "gulp-6to5": "~3.0.0",
+        "mocha": "~2.1.0",
+        "gulp-notify": "~2.2.0",
+        "coveralls": "~2.11.2",
+        "mocha-lcov-reporter": "0.0.1",
+        "blanket": "~1.1.6"
+    },
+    "scripts": {
+        "start": "env node ./dist/test_app/index.js",
+        "postinstall": "./node_modules/.bin/gulp",
+        "test": "./node_modules/.bin/mocha --recursive -R spec",
+        "coveralls": "./node_modules/.bin/mocha -r blanket --recursive -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
+    },
+    "config": {
+        "blanket": {
+            "pattern": [
+                "dist"
+            ]
+        }
+    },
+    "author": "drewzh <me@drewzh.com>",
+    "license": "BSD"
 }
