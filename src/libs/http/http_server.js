@@ -1,6 +1,6 @@
 'use strict';
 
-var http = require('http'),
+var http = require('http2'),
     Request = require('./request'),
     Response = require('./response');
 
