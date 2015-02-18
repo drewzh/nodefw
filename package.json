@@ -26,8 +26,8 @@
     }
   },
   "scripts": {
-    "build": "./node_modules/.bin/gulp",
     "start": "env node ./dist/test_app/index.js",
+    "postinstall": "./node_modules/.bin/gulp",
     "test": "./node_modules/.bin/mocha --recursive -R spec",
     "coveralls": "./node_modules/.bin/_mocha --require blanket --recursive -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
   },
