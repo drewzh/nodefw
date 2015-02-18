@@ -29,8 +29,8 @@
   "scripts": {
     "build": "./node_modules/.bin/gulp",
     "start": "env node ./dist/test_app/index.js",
-    "test": "./node_modules/.bin/mocha -R spec",
-    "coveralls": "./node_modules/.bin/_mocha --require blanket -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
+    "test": "./node_modules/.bin/mocha --recursive -R spec",
+    "coveralls": "./node_modules/.bin/_mocha --require blanket --recursive -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
   },
   "author": "drewzh <me@drewzh.com>",
   "license": "BSD"

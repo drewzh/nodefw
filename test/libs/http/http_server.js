@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert'),
-    HttpServer = require('../http_server.js');
+    HttpServer = require('../../../dist/libs/http/http_server.js');
 
 describe('HTTP', function() {
     describe('Module HttpServer', function() {
