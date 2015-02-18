@@ -8,7 +8,7 @@
   },
   "main": "src/test_app/index.js",
   "engines": {
-    "iojs": "1.0.x"
+    "node": "0.10.x"
   },
   "dependencies": {},
   "devDependencies": {
