@@ -18,8 +18,7 @@
     "gulp-notify": "~2.2.0",
     "coveralls": "~2.11.2",
     "mocha-lcov-reporter": "0.0.1",
-    "blanket": "~1.1.6",
-    "http2": "~3.1.2"
+    "blanket": "~1.1.6"
   },
   "config": {
     "blanket": {
