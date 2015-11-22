@@ -2,11 +2,12 @@
 
 class Logger {
 
-    constructor(adaptors){
+    constructor(adaptors, tags){
         if(typeof(adaptors) === 'undefined'){
             throw new Error('No logging adaptors specified');
         }
 
+        this.tags = tags;
         this.adaptors = [];
 
         if(adaptors.constructor === Array){
@@ -16,38 +17,41 @@ class Logger {
         }
     }
 
-    log(message){
+    log(message, tag){
         // Add timestamp to output
         var timestamp = new Date().toUTCString();
         message = `[${timestamp}] ${message}`;
 
-        // Output message to all adaptors
-        this.adaptors.forEach(function(adaptor){
-            adaptor.output(message);
-        });
+        if(this.tags.indexOf(tag) !== -1){
+            // Output message to all adaptors
+            this.adaptors.forEach(adaptor => adaptor.output(message));
+        }
     }
 
     /**
      * Helper methods
      */
     info(message){
-        this.log(`INFO: ${message}`);
+        this.log(message, 'info');
     }
 
     debug(message){
-        this.log(`DEBUG: ${message}`);
+        // TODO: Tag filtering
+        if(this.debug){
+            this.log(message, 'debug');
+        }
     }
 
     warn(message){
-        this.log(`WARNING: ${message}`);
+        this.log(message, 'warning');
     }
 
     error(message){
-        this.log(`ERROR: ${message}`);
+        this.log(message, 'error');
     }
 
     crit(message){
-        this.log(`CRITICAL: ${message}`);
+        this.log(message, 'critical');
     }
 }
 

@@ -7,19 +7,19 @@ var fs = require('fs');
  */
 class FileLogger {
 
-    constructor(file_name){
-        if(typeof(file_name) === 'undefined'){
-            throw new Error('No file name specified for FileAdaptor');
+    constructor(filePath){
+        if(typeof(filePath) === 'undefined'){
+            throw new Error('No path specified for FileAdaptor');
         }
 
-        this.file_name = file_name;
+        this.filePath = filePath;
     }
 
     output(message){
         // Add new line at end of message
         message = message + '\r\n';
 
-        fs.appendFile(this.file_name, message, function (err) {
+        fs.appendFile(this.filePath, message, (err) => {
           if (err) {
               throw err;
           }

@@ -10,19 +10,25 @@ var HttpServer = require('./libs/http/http_server'),
 class Application {
 
     constructor(options){
-        // TODO: Fix requirement for app variable
-        var app = this;
-
         this.name = options.name || 'Default Application';
         this.author = options.author || '';
         this.description = options.description || '';
         this.version = options.version || '';
+        this.debug = options.debug || false;
 
         /**
          * Setup logging
          */
-        this.logger = new Logger([new FileLogger(__dirname + '/app.log'),
-                                  new ConsoleLogger()]);
+        var tags = ['info', 'warning', 'error'];
+
+        if(this.debug){
+            tags.push('debug');
+        }
+
+        this.logger = new Logger([
+            new FileLogger(__dirname + '/app.log'),
+            new ConsoleLogger()
+        ], tags);
 
         /**
          * Setup HTTP and routing
