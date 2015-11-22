@@ -12,13 +12,17 @@ class Router {
 
     // Iterate through routes and return first one that matches
     matchRoute(uri){
-        for(let i=0; i<this.routes.length; i++){
-            if(this.routes[i].isMatch(uri)){
-                return this.routes[i];
+        var promise = new Promise((resolve, reject) => {
+            for(let i=0; i<this.routes.length; i++){
+                if(this.routes[i].isMatch(uri)){
+                    resolve(this.routes[i]);
+                }
             }
-        }
 
-        throw new Error('No route matched');
+            reject(new Error('No route matched'));
+        });
+
+        return promise;
     }
 
 }

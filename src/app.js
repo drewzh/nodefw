@@ -37,29 +37,30 @@ class Application {
         this.httpServer = new HttpServer(this.router);
 
         // Log incoming requests
-        this.httpServer.addHandler(function(req, res, next){
+        this.httpServer.addHandler((req, res, next) => {
             var incomingAddress = req.getClientIP(),
                 requestedPath = req.getPath();
 
-            app.logger.debug(`Incoming request from: ${incomingAddress} for ${requestedPath}`);
+            this.logger.debug(`Incoming request from: ${incomingAddress} for ${requestedPath}`);
 
             next(req, res);
         });
 
         // Add routing handler
-        this.httpServer.addHandler(function(req, res, next){
-            try{
-                var route = app.router.matchRoute(req.getPath());
+        this.httpServer.addHandler((req, res, next) => {
+            this.router.matchRoute(req.getPath()).then(route => {
+                this.logger.debug(`Request handled by ${JSON.stringify(route)}`);
                 route.callback(req, res);
-            }catch(e){
-                app.logger.error(`Routing error: ${e.message}`);
-            }
+            }).catch(e => {
+                this.logger.error(`Routing error: ${e.message}`);
+                res.send(404, 'Resource not found (404)');
+            });
         });
     }
 
     start(port, address){
         this.httpServer.listen(port, address);
-        this.logger.info(`Application started, listening on port ${this.httpServer.port}`);
+        this.logger.info(`${this.name} (${this.version}) started, listening on port ${this.httpServer.port}`);
     }
 
     /**

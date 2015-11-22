@@ -13,6 +13,12 @@ class Route {
     isMatch(uri){
         return uri.match(this.pattern) !== null;
     }
+
+    toJSON(){
+        return {
+            pattern: this.pattern.toString()
+        }
+    }
 }
 
 module.exports = Route;
