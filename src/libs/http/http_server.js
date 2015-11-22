@@ -39,6 +39,7 @@ class HttpServer {
         this.response = new Response(res);
 
         // Iterate through handlers, passing in the next in line as a param
+        // TODO: Make use of generator functions
         for(let i=0; i<this.requestHandlers.length; i++){
             this.requestHandlers[i](this.request,
                                     this.response,

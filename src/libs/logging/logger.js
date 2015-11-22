@@ -20,7 +20,7 @@ class Logger {
     log(message, tag){
         // Add timestamp to output
         var timestamp = new Date().toUTCString();
-        message = `[${timestamp}] ${message}`;
+        message = `[${timestamp}] [${tag.toUpperCase()}] ${message}`;
 
         if(this.tags.indexOf(tag) !== -1){
             // Output message to all adaptors
@@ -36,10 +36,7 @@ class Logger {
     }
 
     debug(message){
-        // TODO: Tag filtering
-        if(this.debug){
-            this.log(message, 'debug');
-        }
+        this.log(message, 'debug');
     }
 
     warn(message){

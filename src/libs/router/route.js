@@ -2,12 +2,15 @@
 
 /**
  * Container object for route metadata
+ *
+ * TODO: Add simple syntax support but keep RegEx compatibility
  */
 class Route {
 
-    constructor(pattern, callback){
+    constructor(type, pattern, action){
+        this.type = type;
         this.pattern = pattern;
-        this.callback = callback;
+        this.action = action;
     }
 
     isMatch(uri){
@@ -16,6 +19,7 @@ class Route {
 
     toJSON(){
         return {
+            type: this.type.toUpperCase(),
             pattern: this.pattern.toString()
         }
     }
