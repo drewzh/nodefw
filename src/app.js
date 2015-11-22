@@ -42,15 +42,13 @@ class Application {
                 requestedPath = req.getPath();
 
             this.logger.debug(`Incoming request from: ${incomingAddress} for ${requestedPath}`);
-
-            next(req, res);
         });
 
         // Add routing handler
-        this.httpServer.addHandler((req, res, next) => {
+        this.httpServer.addHandler((req, res) => {
             this.router.matchRoute(req.getPath()).then(route => {
                 this.logger.debug(`Request handled by ${JSON.stringify(route)}`);
-                route.callback(req, res);
+                route.action(req, res);
             }).catch(e => {
                 this.logger.error(`Routing error: ${e.message}`);
                 res.send(404, 'Resource not found (404)');
@@ -63,15 +61,8 @@ class Application {
         this.logger.info(`${this.name} (${this.version}) started, listening on port ${this.httpServer.port}`);
     }
 
-    /**
-     * Router helper methods
-     */
-    get(pattern, callback){
-        this.router.addRoute(new Route(pattern, callback));
-    }
-
-    post(pattern, callback){
-        this.router.addRoute(new Route(pattern, callback));
+    addRoutes(routes){
+        routes.forEach(route => this.router.addRoute(route));
     }
 }
 
