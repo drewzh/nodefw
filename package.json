@@ -12,21 +12,20 @@
     "npm": "3.x"
   },
   "dependencies": {
-    "gulp": "^3.9.0",
-    "gulp-notify": "~2.2.0"
+    "gulp": "^3.9.0"
   },
   "devDependencies": {
-    "blanket": "~1.1.6",
-    "coveralls": "~2.11.2",
-    "gulp-connect": "^2.2.0",
+    "blanket": "^1.2.1",
+    "coveralls": "^2.11.4",
+    "gulp-notify": "~2.2.0",
+    "istanbul": "^0.4.0",
     "mocha": "~2.1.0",
-    "mocha-lcov-reporter": "0.0.1"
+    "mocha-lcov-reporter": "^1.0.0"
   },
   "scripts": {
-    "start": "env node ./dist/test_app/index.js",
     "postinstall": "gulp",
     "test": "mocha --recursive -R spec",
-    "coveralls": "mocha -r blanket --recursive -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "config": {
     "blanket": {
