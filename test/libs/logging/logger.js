@@ -1,8 +1,8 @@
 'use strict';
 
 var assert = require('assert'),
-    Logger = require('../../../dist/libs/logging/logger'),
-    ConsoleLogger = require('../../../dist/libs/logging/adaptors/console');
+    Logger = require('../../../src/libs/logging/logger'),
+    ConsoleLogger = require('../../../src/libs/logging/adaptors/console');
 
 describe('Logging', function() {
     describe('Module Logger', function() {

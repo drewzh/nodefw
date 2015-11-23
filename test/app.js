@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert'),
-    Application = require('../dist/app.js');
+    Application = require('../src/app.js');
 
 describe('Application', function() {
     describe('Module Application', function() {

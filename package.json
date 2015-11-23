@@ -6,7 +6,6 @@
     "type": "git",
     "url": "http://github.com/drewzh/nodefw.git"
   },
-  "main": "src/test_app/index.js",
   "engines": {
     "node": "5.x",
     "npm": "3.x"
@@ -15,10 +14,9 @@
     "gulp": "^3.9.0"
   },
   "devDependencies": {
-    "blanket": "^1.2.1",
+    "istanbul": "^0.4.0",
     "coveralls": "^2.11.4",
     "gulp-notify": "~2.2.0",
-    "istanbul": "^0.4.0",
     "mocha": "~2.1.0",
     "mocha-lcov-reporter": "^1.0.0"
   },
@@ -26,13 +24,6 @@
     "postinstall": "gulp",
     "test": "mocha --recursive -R spec",
     "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
-  },
-  "config": {
-    "blanket": {
-      "pattern": [
-        "dist"
-      ]
-    }
   },
   "author": "drewzh <me@drewzh.com>",
   "license": "BSD"
