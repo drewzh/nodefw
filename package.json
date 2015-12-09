@@ -2,6 +2,7 @@
   "name": "nodefw",
   "version": "0.0.1",
   "description": "Node HTTP API framework",
+  "main": "src/app.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/drewzh/nodefw.git"
